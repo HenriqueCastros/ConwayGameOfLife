@@ -11,7 +11,7 @@ This project is still in development, there are upcoming updates still to be rel
 
 - [x] Flexible game grid.
 - [x] Grid's size picker with responsive max-size.
-- [ ] Label to size picker.
+- [x] Label to size picker.
 - [ ] Dark and light mode.
 - [ ] Buttons that add certain pattern to the grid. I. e.: Spaceships, Oscillators, etc.
 

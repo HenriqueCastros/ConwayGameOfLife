@@ -18,9 +18,15 @@
             <div class="col-lg-6 p-5">
                 <h1 class="display-4">Conway's Game of Life</h1>
                 <form>
-                    <label for="widthRange" class="form-label">Pick a width</label>
-                    <input type="range" class="form-range" min="5" max="50" step="1" id="widthRange" />
-                    <label for="heightRange" class="form-label">Pick a height</label>
+                    <label for="widthRange" class="form-label">
+                        Pick a width: 
+                        <span class="badge bg-light text-dark" id="widthbadge"></span>
+                    </label>
+                    <input type="range" class="form-range" min="5" max="35" step="1" id="widthRange" />
+                    <label for="heightRange" class="form-label">
+                        Pick a height: 
+                        <span class="badge bg-light text-dark" id="heightbadge"></span>
+                    </label>
                     <input type="range" class="form-range" min="5" max="35" step="1" id="heightRange" />
                 </form>
                 <div class="input-group">

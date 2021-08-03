@@ -89,16 +89,31 @@ function drawCell(x, y, status) {
   else fill(0);
   square(x * size + 1, y * size + 1, size-2);
 }
-document.getElementById("widthRange").max = Math.floor(document.querySelector('#main').clientWidth / size) -1
-window.onresize = () => {
-  document.getElementById("widthRange").max = Math.floor(document.querySelector('#main').clientWidth / size)-1
-}
 
-document.getElementById("apply").onclick = () => {
-  w = document.getElementById("widthRange").value * size;
-  h = document.getElementById("heightRange").value * size;
+let updateGrid = () => {
+  w = widthSlider.value * size;
+  h = heightSlider.value * size;
   setup()
 };
+
+let widthSlider =  document.getElementById("widthRange")
+let heightSlider = document.getElementById("heightRange")
+let widthBadge =  document.getElementById("widthbadge")
+let heightBadge =  document.getElementById("heightbadge")
+
+widthSlider.max = heightSlider.max = Math.floor(document.querySelector('#main').clientWidth / size) -1
+widthBadge.innerHTML = (widthSlider.value)
+heightBadge.innerHTML = (heightSlider.value)
+window.onresize = () => {
+  widthSlider.max = heightSlider.max = Math.floor(document.querySelector('#main').clientWidth / size)-1
+  widthBadge.innerHTML = (widthSlider.value)
+  heightBadge.innerHTML = (heightSlider.value)
+  updateGrid()
+}
+
+document.getElementById("apply").onclick = updateGrid
+
+
 
 document.getElementById("start").onclick = () => {
   isPlaying = true;
@@ -109,3 +124,11 @@ document.getElementById("stop").onclick = () => {
   isPlaying = false;
   noLoop();
 };
+
+widthSlider.oninput = () =>{
+  widthBadge.innerHTML = (widthSlider.value)
+}
+
+heightSlider.oninput = () =>{
+  heightBadge.innerHTML = (heightSlider.value)
+}
